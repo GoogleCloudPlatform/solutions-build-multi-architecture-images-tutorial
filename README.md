@@ -36,9 +36,10 @@ To provision the necessary infrastructure, you need to initialize and export the
 
 You can now trigger the container image building pipeline:
 
-1. Clone the Cloud Source Repository (CSR) that you provisioned with Terraform: ``
-1. Copy the provided [`Dockerfile`](terraform/cloud-build/Dockerfile) in the directory where you cloned the CSR repository.
-1. Commit the changes: `git add Dockerfile`
+1. Clone the Cloud Source Repository (CSR) that you provisioned with Terraform: `gcloud source repos clone cross-build`
+1. Copy the provided [`Dockerfile`](terraform/cloud-build/Dockerfile) and the [build-docker-image-trigger.yaml](terraform/cloud-build/build-docker-image-trigger.yaml) in the directory where you cloned the CSR repository.
+1. Change your working directory to the directory where you clone the CSR repository.
+1. Commit the changes: `git add .`
 1. Push the changes to the remote CSR repository: `git push`
 
 You can then open the Cloud Build page in the Google Cloud Console to inspect the results.

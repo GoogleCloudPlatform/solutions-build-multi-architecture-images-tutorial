@@ -1,10 +1,14 @@
 # Building multi-architecture container images on Google Cloud
 
-This repository contains the necessary scripts and descriptors to setup the infrastructure
-for the []() reference guide:
+This repository contains the necessary scripts and descriptors to setup the
+infrastructure described in
+[Building multi-architecture container images in Google Cloud](https://cloud.google.com/solutions/)
+reference guide:
 
-- [Terraform](https://www.terraform.io/) templates that provision the necessary infrastructure on Google Cloud.
-- A [Dockerfile](https://docs.docker.com/engine/reference/builder/) to build a Docker image during the tutorial.
+- [Terraform](https://www.terraform.io/) templates that provision the necessary
+    infrastructure on Google Cloud.
+- A [Dockerfile](https://docs.docker.com/engine/reference/builder/) to build a
+    Docker image during the tutorial.
 
 ## Dependencies
 
@@ -16,13 +20,19 @@ You need the following tools to follow the tutorial:
 
 ## Setting environment variables
 
-To provision the necessary infrastructure, you need to initialize and export the following environment variables:
+To provision the necessary infrastructure, you need to initialize and export the
+following environment variables:
 
-- `TF_SERVICE_ACCOUNT_NAME`: [Google Cloud service account](https://cloud.google.com/iam/docs/understanding-service-accounts) name that Terraform will use to provision resources.
-- `TF_STATE_PROJECT`: Google Cloud project ID that Terraform will use to store the [state](https://www.terraform.io/docs/state/index.html).
-- `TF_STATE_BUCKET`: Google Cloud Storage bucket that Terraform will use to save the state files.
-- `GOOGLE_CLOUD_PROJECT`: Google Cloud project ID that will contain the resources for the container image building pipeline.
-- `GOOGLE_APPLICATION_CREDENTIALS`: path to the default Google Cloud credentials.
+- `TF_SERVICE_ACCOUNT_NAME`: [Google Cloud service account](https://cloud.google.com/iam/docs/understanding-service-accounts)
+    name that Terraform will use to provision resources.
+- `TF_STATE_PROJECT`: Google Cloud project ID that Terraform will use to store
+    the [state](https://www.terraform.io/docs/state/index.html).
+- `TF_STATE_BUCKET`: Google Cloud Storage bucket that Terraform will use to save
+    the state files.
+- `GOOGLE_CLOUD_PROJECT`: Google Cloud project ID that will contain the
+    resources for the container image building pipeline.
+- `GOOGLE_APPLICATION_CREDENTIALS`: path to the default Google Cloud
+    credentials.
 
 ## Provisioning the environment
 
@@ -36,10 +46,18 @@ To provision the necessary infrastructure, you need to initialize and export the
 
 You can now trigger the container image building pipeline:
 
+<<<<<<< HEAD
 1. Clone the Cloud Source Repository (CSR) that you provisioned with Terraform: `gcloud source repos clone cross-build`
 1. Copy the provided [`Dockerfile`](terraform/cloud-build/Dockerfile) and the [build-docker-image-trigger.yaml](terraform/cloud-build/build-docker-image-trigger.yaml) in the directory where you cloned the CSR repository.
 1. Change your working directory to the directory where you clone the CSR repository.
+=======
+1. Clone the Cloud Source Repository (CSR) that you provisioned with Terraform: ``
+1. Copy the provided [`Dockerfile`](terraform/cloud-build/Dockerfile) and the
+    [build-docker-image-trigger.yaml](terraform/cloud-build/build-docker-image-trigger.yaml)
+    in the directory where you cloned the CSR repository.
+>>>>>>> bd4cb63... Add details to README
 1. Commit the changes: `git add .`
 1. Push the changes to the remote CSR repository: `git push`
 
-You can then open the Cloud Build page in the Google Cloud Console to inspect the results.
+You can then open the Cloud Build page in the Google Cloud Console to inspect
+the results.

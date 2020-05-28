@@ -2,7 +2,7 @@
 
 This repository contains the necessary scripts and descriptors to setup the
 infrastructure described in
-[Building multi-architecture container images in Google Cloud](https://cloud.google.com/solutions/)
+[Building multi-architecture container images in Google Cloud](https://cloud.google.com/solutions/building-multi-architecture-container-images-iot-devices-tutorial)
 reference guide:
 
 - [Terraform](https://www.terraform.io/) templates that provision the necessary
@@ -46,7 +46,8 @@ following environment variables:
 
 You can now trigger the container image building pipeline:
 
-1. Clone the Cloud Source Repository (CSR) that you provisioned with Terraform: `gcloud source repos clone cross-build`
+1. Clone the Cloud Source Repository (CSR) that you provisioned with Terraform:
+    `gcloud source repos clone cross-build`
 1. Copy the provided [`Dockerfile`](terraform/cloud-build/Dockerfile) and the
     [build-docker-image-trigger.yaml](terraform/cloud-build/build-docker-image-trigger.yaml)
     in the directory where you cloned the CSR repository.

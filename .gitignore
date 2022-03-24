@@ -3,3 +3,6 @@ terraform/backend.tf
 
 # Ignore the Terraform state directory
 terraform/.terraform
+
+# Ignore log files
+*.log

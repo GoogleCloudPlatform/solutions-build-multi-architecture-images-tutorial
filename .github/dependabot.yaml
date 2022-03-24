@@ -1,0 +1,17 @@
+---
+version: 2
+updates:
+  - directory: "/"
+    package-ecosystem: "github-actions"
+    open-pull-requests-limit: 10
+    schedule:
+      interval: "daily"
+  - directory: "/cloud-build"
+    package-ecosystem: "docker"
+    schedule:
+      interval: "daily"
+  - directory: "/terraform"
+    package-ecosystem: "terraform"
+    schedule:
+      interval: "daily"
+...

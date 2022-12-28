@@ -20,6 +20,8 @@ on: [push, pull_request]
 jobs:
   lint:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v3
       - name: Super-Linter
@@ -30,8 +32,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LINTER_RULES_PATH: .
           VALIDATE_ALL_CODEBASE: true
+
   terraform:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v3
 
@@ -47,11 +52,8 @@ jobs:
         id: lint
         working-directory: terraform
         run: terraform validate
+
   build-container-images:
-    env:
-      CONTAINER_IMAGE_ID: "${{ github.repository }}-validation"
-    needs:
-      - lint
     permissions:
       contents: read
     runs-on: ubuntu-latest
@@ -61,26 +63,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v4.1.1
-        with:
-          images: |
-            ${{ env.CONTAINER_IMAGE_REGISTRY }}/${{ env.CONTAINER_IMAGE_ID }}
-          tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}.{{patch}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
       - name: Build the validation container image
         uses: docker/build-push-action@v3
         with:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           context: terraform/cloud-build
-          labels: ${{ steps.meta.outputs.labels }}
-          load: true
-          tags: ${{ steps.meta.outputs.tags }}
 ...

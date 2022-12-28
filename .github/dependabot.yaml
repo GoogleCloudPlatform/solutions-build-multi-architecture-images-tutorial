@@ -20,7 +20,7 @@ updates:
     open-pull-requests-limit: 10
     schedule:
       interval: "daily"
-  - directory: "/cloud-build"
+  - directory: "/terraform/cloud-build"
     package-ecosystem: "docker"
     schedule:
       interval: "daily"

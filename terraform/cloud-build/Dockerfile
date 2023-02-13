@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM alpine:3.17.1
+FROM alpine:3.17.2
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 RUN echo "I am running on ${BUILDPLATFORM}, building for ${TARGETPLATFORM}"

@@ -29,6 +29,7 @@ jobs:
       - name: Enable auto-merge for patch updates PR
         if: >
           steps.metadata.outputs.update-type == 'version-update:semver-patch'
+          || steps.metadata.outputs.dependency-names == 'actions/checkout'
           || steps.metadata.outputs.dependency-names == 'hashicorp/google'
           || steps.metadata.outputs.dependency-names == 'hashicorp/google-beta'
         run: gh pr merge --auto --squash --delete-branch "${PR_URL}"

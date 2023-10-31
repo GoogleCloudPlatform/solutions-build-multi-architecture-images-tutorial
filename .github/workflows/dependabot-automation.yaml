@@ -35,6 +35,7 @@ jobs:
           || steps.metadata.outputs.dependency-names == 'docker/setup-qemu-action'
           || steps.metadata.outputs.dependency-names == 'hashicorp/google'
           || steps.metadata.outputs.dependency-names == 'hashicorp/google-beta'
+          || steps.metadata.outputs.dependency-names == 'hashicorp/setup-terraform'
           || steps.metadata.outputs.dependency-names == 'super-linter/super-linter'
         run: gh pr merge --auto --squash --delete-branch "${PR_URL}"
 ...

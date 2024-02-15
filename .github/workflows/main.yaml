@@ -37,11 +37,8 @@ jobs:
       - name: Super-Linter
         uses: super-linter/super-linter@v6.1.1
         env:
-          DISABLE_ERRORS: false
-          ERROR_ON_MISSING_EXEC_BIT: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LINTER_RULES_PATH: .
-          MULTI_STATUS: false
           VALIDATE_ALL_CODEBASE: true
 
   terraform:

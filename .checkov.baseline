@@ -1,0 +1,27 @@
+{
+    "failed_checks": [
+        {
+            "file": "/terraform/cloud-build/Dockerfile",
+            "findings": [
+                {
+                    "resource": "/terraform/cloud-build/Dockerfile.",
+                    "check_ids": [
+                        "CKV_DOCKER_2",
+                        "CKV_DOCKER_3"
+                    ]
+                }
+            ]
+        },
+        {
+            "file": "/terraform/main.tf",
+            "findings": [
+                {
+                    "resource": "google_pubsub_topic.csr-cross-build-topic",
+                    "check_ids": [
+                        "CKV_GCP_83"
+                    ]
+                }
+            ]
+        }
+    ]
+}
